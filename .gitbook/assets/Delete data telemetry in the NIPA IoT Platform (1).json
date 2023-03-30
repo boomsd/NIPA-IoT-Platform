@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "bb9c0df4-2198-4c59-8cd0-afea207def9d",
+		"name": "Delete data telemetry in the NIPA IoT Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13967575"
+	},
+	"item": [
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"boomkitsakorn@nipa.cloud\", \n    \"password\":\"1212312121\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://iot.nipa.cloud/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"iot",
+						"nipa",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete data in the period",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib29ta2l0c2Frb3JuQG5pcGEuY2xvdWQiLCJ1c2VySWQiOiIxZWI3ODgyMC1jZWFhLTExZWQtOTRiZS1mYjM0YWMzZTY4M2MiLCJzY29wZXMiOlsiVEVOQU5UX0FETUlOIl0sInNlc3Npb25JZCI6ImRmMDNmNGI5LTg2NDktNDA1Ni1iZTY4LTlhZDgzYzg1YzhiYSIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNjgwMTUyMDQ1LCJleHAiOjE2ODAxNjEwNDUsImZpcnN0TmFtZSI6ImJvb20iLCJsYXN0TmFtZSI6IktpdHNha29ybiIsImVuYWJsZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiIwYjYyMzBlMC1jZWFhLTExZWQtOTRiZS1mYjM0YWMzZTY4M2MiLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIn0.sGDUWLilHf89tsPdsfpHWrqswTEa0w9fHwWGg_QhzzPhefBsYJf3sUkGqwNAFecW0f2AuTifX_20KPAvGlXRlw"
+					}
+				],
+				"url": {
+					"raw": "https://iot.nipa.cloud/api/plugins/telemetry/DEVICE/67de56a0-ceaa-11ed-94be-fb34ac3e683c/timeseries/delete?keys=temperature&deleteAllDataForKeys=false&startTs=1680084030000&endTs=1680089430000&rewriteLatestIfDeleted=false",
+					"protocol": "https",
+					"host": [
+						"iot",
+						"nipa",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"plugins",
+						"telemetry",
+						"DEVICE",
+						"67de56a0-ceaa-11ed-94be-fb34ac3e683c",
+						"timeseries",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "keys",
+							"value": "temperature"
+						},
+						{
+							"key": "deleteAllDataForKeys",
+							"value": "false"
+						},
+						{
+							"key": "startTs",
+							"value": "1680084030000"
+						},
+						{
+							"key": "endTs",
+							"value": "1680089430000"
+						},
+						{
+							"key": "rewriteLatestIfDeleted",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete device attributes",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib29tYXphekBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NWUyODRlMC1jZTIxLTExZWQtOTRiZS1mYjM0YWMzZTY4M2MiLCJzY29wZXMiOlsiVEVOQU5UX0FETUlOIl0sInNlc3Npb25JZCI6ImViZGM2MzE4LTEzMjgtNGMyNi1iNWFiLTdlNjlhYmRjMGNkZiIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNjgwMDg3ODYxLCJleHAiOjE2ODAwOTY4NjEsImZpcnN0TmFtZSI6ImJvb20iLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTNlMGYwNjAtY2UxOC0xMWVkLTk0YmUtZmIzNGFjM2U2ODNjIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.xBLKZ1v3g1Oz5uAyfn7rPqXgrVH8njOpQ2V-bXJtWdqJ0444i2ITCN-Y5QYeO8TE6QSXEidgaD0qmG4w7HUcBQ"
+					}
+				],
+				"url": {
+					"raw": "https://iot.nipa.cloud/api/plugins/telemetry/67de56a0-ceaa-11ed-94be-fb34ac3e683c/SERVER_SCOPE?keys=temperature",
+					"protocol": "https",
+					"host": [
+						"iot",
+						"nipa",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"plugins",
+						"telemetry",
+						"67de56a0-ceaa-11ed-94be-fb34ac3e683c",
+						"SERVER_SCOPE"
+					],
+					"query": [
+						{
+							"key": "keys",
+							"value": "temperature"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete entity attributes",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib29tYXphekBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NWUyODRlMC1jZTIxLTExZWQtOTRiZS1mYjM0YWMzZTY4M2MiLCJzY29wZXMiOlsiVEVOQU5UX0FETUlOIl0sInNlc3Npb25JZCI6ImViZGM2MzE4LTEzMjgtNGMyNi1iNWFiLTdlNjlhYmRjMGNkZiIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNjgwMDg3ODYxLCJleHAiOjE2ODAwOTY4NjEsImZpcnN0TmFtZSI6ImJvb20iLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTNlMGYwNjAtY2UxOC0xMWVkLTk0YmUtZmIzNGFjM2U2ODNjIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.xBLKZ1v3g1Oz5uAyfn7rPqXgrVH8njOpQ2V-bXJtWdqJ0444i2ITCN-Y5QYeO8TE6QSXEidgaD0qmG4w7HUcBQ"
+					}
+				],
+				"url": {
+					"raw": "https://iot.nipa.cloud/api/plugins/telemetry/DEVICE/67de56a0-ceaa-11ed-94be-fb34ac3e683c/CLIENT_SCOPE?keys=temperature",
+					"protocol": "https",
+					"host": [
+						"iot",
+						"nipa",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"plugins",
+						"telemetry",
+						"DEVICE",
+						"67de56a0-ceaa-11ed-94be-fb34ac3e683c",
+						"CLIENT_SCOPE"
+					],
+					"query": [
+						{
+							"key": "keys",
+							"value": "temperature"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
